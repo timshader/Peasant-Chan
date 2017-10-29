@@ -10,7 +10,7 @@ bot.command(:connect) do |event|
   channel = event.user.voice_channel
   next "You're not in any voice channel!" unless channel
   bot.voice_connect(channel)
-  "Connected to voice channel: #{channel.name}"
+  "Tim Shader is my creator. DM him about any issues."
   playLobbyMusic(event.voice)
 end
 
@@ -18,7 +18,7 @@ bot.command(:connectx) do |event|
   channel = event.user.voice_channel
   next "You're not in any voice channel!" unless channel
   bot.voice_connect(channel)
-  "Connected to voice channel: #{channel.name}"
+  "Tim Shader is my creator. DM him about any issues."
 end
 
 bot.command(:disconnect) do |event|
@@ -37,6 +37,70 @@ end
 
 bot.command(:stop) do |event|
   event.voice.stop_playing
+end
+#--------------------------------------------------------------------------
+
+#Command List
+#--------------------------------------------------------------------------
+# BE CAREFUL UPDATING THE STRING OF COMMANDS, IT LIKES TO BREAK THE BOT.
+# IF NEW COMMANDS DON'T WORK WHEN UPDATING PEASANT-CHAN, THE FIRST THING TO TRY IS DELETING
+# WHATEVER COMMANDS YOU ADDED TO THE COMMAND LIST STRING
+bot.command(:commands) do |event|
+  event.channel.send_message 'One of "~" and one of:
+
+GENERAL COMMANDS
+ -> commands
+ -> connect
+ -> connectx
+ -> disconnect (or dc)
+ -> volres
+ -> stop
+
+BALDURS GATE
+ -> poor
+ -> alaundo1 - alaundo5
+ -> bbb
+ -> copyright
+ -> diddies
+ -> heroes
+ -> hotel
+ -> hurt
+ -> jehova
+ -> bandit
+ -> tiddies
+ -> time
+ -> town
+
+DARK SOULS
+ -> abyss
+ -> catacombs
+ -> covenant
+ -> dark_party
+ -> humanity
+ -> man_cavern
+ -> miasma
+ -> seath
+ -> stat_alignment
+ -> trap
+ -> waterpark
+
+JOJO
+ -> road_roller_da
+
+SMASH
+ -> nein
+ -> downsmash
+ -> wombo_combo
+
+OBLIVION
+ -> high_elves
+
+MISCELLANEOUS
+ -> lobby_music
+ -> done_this
+ -> big_ol_doinks
+ -> ussr
+ -> pools_closed'
 end
 #--------------------------------------------------------------------------
 
@@ -72,15 +136,6 @@ end
 
 # Baldur's Gate mp3's
 #--------------------------------------------------------------------------
-bot.command(:poor) do |event|
-  # `event.voice` is a helper method that gets the correct voice bot on the server the bot is currently in. Since a
-  # bot may be connected to more than one voice channel (never more than one on the same server, though), this is
-  # necessary to allow the differentiation of servers.
-  #
-  # It returns a `VoiceBot` object that methods such as `play_file` can be called on.
-  voice_bot = event.voice
-  voice_bot.play_file('audio/BG/poor.mp3')
-end
 
 bot.command(:alaundo1) do |event|
   voice_bot = event.voice
@@ -185,6 +240,129 @@ bot.command(:town) do |event|
 end
 #--------------------------------------------------------------------------
 
+# Dark Souls related mp3s
+#--------------------------------------------------------------------------
+bot.command(:abyss) do |event|
+  voice_bot = event.voice
+  voice_bot.volume = 0.5
+  voice_bot.play_file('audio/DS/abyss.mp3')
+end
+
+bot.command(:catacombs) do |event|
+  voice_bot = event.voice
+  voice_bot.volume = 0.5
+  voice_bot.play_file('audio/DS/catacombs.mp3')
+end
+
+bot.command(:covenant) do |event|
+  voice_bot = event.voice
+  voice_bot.volume = 0.5
+  voice_bot.play_file('audio/DS/convenant.mp3')
+end
+
+bot.command(:dark_party) do |event|
+  voice_bot = event.voice
+  voice_bot.volume = 0.5
+  voice_bot.play_file('audio/DS/dark_party.mp3')
+end
+
+bot.command(:humanity) do |event|
+  voice_bot = event.voice
+  voice_bot.volume = 0.5
+  voice_bot.play_file('audio/DS/humanity.mp3')
+end
+
+bot.command(:man_cavern) do |event|
+  voice_bot = event.voice
+  voice_bot.volume = 0.5
+  voice_bot.play_file('audio/DS/man_cavern.mp3')
+end
+
+bot.command(:miasma) do |event|
+  voice_bot = event.voice
+  voice_bot.volume = 0.5
+  voice_bot.play_file('audio/DS/miasma.mp3')
+end
+
+bot.command(:seath) do |event|
+  voice_bot = event.voice
+  voice_bot.volume = 0.5
+  voice_bot.play_file('audio/DS/seath.mp3')
+end
+
+bot.command(:stat_alignment) do |event|
+  voice_bot = event.voice
+  voice_bot.volume = 0.5
+  voice_bot.play_file('audio/DS/stat_alignment.mp3')
+end
+
+bot.command(:trap) do |event|
+  voice_bot = event.voice
+  voice_bot.volume = 0.5
+  voice_bot.play_file('audio/DS/trap.mp3')
+end
+
+bot.command(:waterpark) do |event|
+  voice_bot = event.voice
+  voice_bot.volume = 0.5
+  voice_bot.play_file('audio/DS/waterpark.mp3')
+end
+#--------------------------------------------------------------------------
+
+# Yugioh related mp3s
+#--------------------------------------------------------------------------
+bot.command(:cards) do |event|
+  voice_bot = event.voice
+  voice_bot.volume = 0.5
+  voice_bot.play_file('audio/YUGI/cards.mp3')
+end
+
+bot.command(:joey_show) do |event|
+  voice_bot = event.voice
+  voice_bot.volume = 0.5
+  voice_bot.play_file('audio/YUGI/joey_show.mp3')
+end
+#--------------------------------------------------------------------------
+
+# Jojo related mp3s
+#--------------------------------------------------------------------------
+bot.command(:road_roller_da) do |event|
+  voice_bot = event.voice
+  voice_bot.volume = 0.45
+  voice_bot.play_file('audio/JOJO/road_roller_da.mp3')
+end
+#--------------------------------------------------------------------------
+
+# Smash related mp3s
+#--------------------------------------------------------------------------
+bot.command(:nein) do |event|
+  voice_bot = event.voice
+  voice_bot.volume = 0.5
+  voice_bot.play_file('audio/SMASH/nein.mp3')
+end
+
+bot.command(:downsmash) do |event|
+  voice_bot = event.voice
+  voice_bot.volume = 0.45
+  voice_bot.play_file('audio/SMASH/downsmash.mp3')
+end
+
+bot.command(:wombo_combo) do |event|
+  voice_bot = event.voice
+  voice_bot.volume = 0.05
+  voice_bot.play_file('audio/SMASH/wombo_combo.mp3')
+end
+#--------------------------------------------------------------------------
+
+# Oblivion related mp3s
+#--------------------------------------------------------------------------
+bot.command(:high_elves) do |event|
+  voice_bot = event.voice
+  voice_bot.volume = 0.5
+  voice_bot.play_file('audio/TES4/high_elves.mp3')
+end
+#--------------------------------------------------------------------------
+
 # Misc mp3s
 #--------------------------------------------------------------------------
 bot.command(:lobby_music) do |event|
@@ -203,6 +381,25 @@ bot.command(:big_ol_doinks) do |event|
   voice_bot = event.voice
   voice_bot.volume = 1
   voice_bot.play_file('audio/MISC/doinks.mp3')
+end
+
+bot.command(:turbo) do |event|
+  voice_bot = event.voice
+  voice_bot.volume = 0.5
+  voice_bot.play_file('audio/MISC/turbo.mp3')
+end
+
+bot.command(:ussr) do |event|
+  voice_bot = event.voice
+  voice_bot.volume = 0.25
+  voice_bot.play_file('audio/MISC/ussr.mp3')
+end
+
+bot.command(:pools_closed) do |event|
+  event.channel.send_message 'https://i.imgur.com/lATXJn9.jpg'
+  voice_bot = event.voice
+  voice_bot.volume = 1
+  voice_bot.play_file('audio/MISC/pools_closed.mp3')
 end
 #--------------------------------------------------------------------------
 
